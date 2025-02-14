@@ -2,13 +2,13 @@ export interface HighlightedStyledComponent {
   highlighted?: boolean;
 }
 
-interface ChangeLogItem {
+interface TimelineItem {
   date: Date;
   description: string;
   title: string;
 }
 
-export interface ChangeLogProps {
-  items: ChangeLogItem[];
+export interface TimelineProps {
+  items: TimelineItem[];
   onClickItem?: (index: number) => void;
 }

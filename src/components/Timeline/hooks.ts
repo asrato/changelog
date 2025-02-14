@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-export default function useChangeLog(onClickItem?: (index: number) => void) {
+export default function useTimeline(onClickItem?: (index: number) => void) {
   const [hoveredIndex, setHoveredIndex] = useState(-1);
 
   function handleHover(event: React.MouseEvent<HTMLElement>) {

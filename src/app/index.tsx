@@ -1,4 +1,4 @@
-import ChangeLog from '../components/ChangeLog';
+import Timeline from '../components/Timeline';
 import { GlobalStyles } from './globalStyles';
 import { AppWrapper, Container } from './styles';
 
@@ -111,7 +111,7 @@ export default function App() {
       <GlobalStyles />
       <AppWrapper>
         <Container>
-          <ChangeLog items={items} />
+          <Timeline items={items} />
         </Container>
       </AppWrapper>
     </>

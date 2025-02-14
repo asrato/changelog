@@ -1,17 +1,17 @@
 import React from 'react';
 
-import { ChangeLogWrapper, Date, Description, Info, Title, Tracker } from './styles';
-import { ChangeLogProps } from './types';
+import { TimelineWrapper, Date, Description, Info, Title, Tracker } from './styles';
 import { formatDate } from './utils';
-import useChangeLog from './hooks';
+import useTimeline from './hooks';
+import { TimelineProps } from './types';
 
-export default function ChangeLog(props: ChangeLogProps) {
+export default function Timeline(props: TimelineProps) {
   const { items, onClickItem } = props;
 
-  const { handleClickItem, handleHover, hoveredIndex } = useChangeLog(onClickItem);
+  const { handleClickItem, handleHover, hoveredIndex } = useTimeline(onClickItem);
 
   return (
-    <ChangeLogWrapper>
+    <TimelineWrapper>
       {items.map((item, index) => {
         const { date, description, title } = item;
 
@@ -46,6 +46,6 @@ export default function ChangeLog(props: ChangeLogProps) {
           </React.Fragment>
         );
       })}
-    </ChangeLogWrapper>
+    </TimelineWrapper>
   );
 }

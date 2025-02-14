@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import { HighlightedStyledComponent } from './types';
 
-export const ChangeLogWrapper = styled.div`
+export const TimelineWrapper = styled.div`
   width: 100%;
   display: grid;
   grid-template-columns: auto 40px 1fr;
