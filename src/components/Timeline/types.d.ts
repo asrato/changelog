@@ -1,4 +1,5 @@
 export interface HighlightedStyledComponent {
+  highlightColor: string;
   highlighted?: boolean;
 }
 
@@ -9,6 +10,9 @@ interface TimelineItem {
 }
 
 export interface TimelineProps {
+  dateFormat?: string;
+  highlightColor?: string;
+  highlightedIndex?: number;
   items: TimelineItem[];
   onClickItem?: (index: number) => void;
 }

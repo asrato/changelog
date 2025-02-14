@@ -27,8 +27,8 @@ export const Date = styled.span<HighlightedStyledComponent>`
   min-height: 32px;
   font-weight: 500;
   text-align: right;
-  color: ${({ highlighted }) => (highlighted ? '#d4d4d4' : '#9aa0a6')};
-  -webkit-text-stroke: ${({ highlighted }) => (highlighted ? '1px #d4d4d4' : '0 #9aa0a6')};
+  color: ${({ highlightColor, highlighted }) => (highlighted ? highlightColor : '#9aa0a6')};
+  -webkit-text-stroke: ${({ highlightColor, highlighted }) => (highlighted ? `1px ${highlightColor}` : '0 #9aa0a6')};
 `;
 
 export const Tracker = styled.i<HighlightedStyledComponent>`
@@ -58,7 +58,7 @@ export const Tracker = styled.i<HighlightedStyledComponent>`
     top: 6px;
     left: 50%;
     transform: translateX(-50%);
-    background-color: ${({ highlighted }) => (highlighted ? '#d4d4d4' : '#9aa0a6')};
+    background-color: ${({ highlightColor, highlighted }) => (highlighted ? highlightColor : '#9aa0a6')};
   }
 `;
 
@@ -77,10 +77,11 @@ export const Info = styled.div<HighlightedStyledComponent>`
   flex-direction: column;
   gap: 4px;
   align-items: flex-start;
+  cursor: ${({ onClick }) => (onClick ? 'pointer' : 'auto')};
 
   ${Title} {
-    color: ${({ highlighted }) => (highlighted ? '#d4d4d4' : '#9aa0a6')};
-    -webkit-text-stroke: ${({ highlighted }) => (highlighted ? '1px #d4d4d4' : '0 #9aa0a6')};
+    color: ${({ highlightColor, highlighted }) => (highlighted ? highlightColor : '#9aa0a6')};
+    -webkit-text-stroke: ${({ highlightColor, highlighted }) => (highlighted ? `1px ${highlightColor}` : '0 #9aa0a6')};
   }
 
   ${Description} {

@@ -111,7 +111,7 @@ export default function App() {
       <GlobalStyles />
       <AppWrapper>
         <Container>
-          <Timeline items={items} />
+          <Timeline highlightColor='red' items={items} onClickItem={index => console.log(items[index])} />
         </Container>
       </AppWrapper>
     </>

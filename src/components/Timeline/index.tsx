@@ -6,7 +6,7 @@ import useTimeline from './hooks';
 import { TimelineProps } from './types';
 
 export default function Timeline(props: TimelineProps) {
-  const { items, onClickItem } = props;
+  const { dateFormat = 'DD-MM-YYYY HH:mm', highlightColor = '#d4d4d4', highlightedIndex, items, onClickItem } = props;
 
   const { handleClickItem, handleHover, hoveredIndex } = useTimeline(onClickItem);
 
@@ -18,24 +18,27 @@ export default function Timeline(props: TimelineProps) {
         return (
           <React.Fragment key={index}>
             <Date
+              highlightColor={highlightColor}
               onClick={handleClickItem}
-              highlighted={index === hoveredIndex}
+              highlighted={index === hoveredIndex || highlightedIndex === index}
               aria-valuenow={index}
               onMouseEnter={handleHover}
               onMouseLeave={handleHover}
             >
-              {formatDate(date, 'DD-MM-YYYY HH:mm')}
+              {formatDate(date, dateFormat)}
             </Date>
             <Tracker
+              highlightColor={highlightColor}
               onClick={handleClickItem}
-              highlighted={index === hoveredIndex}
+              highlighted={index === hoveredIndex || highlightedIndex === index}
               aria-valuenow={index}
               onMouseEnter={handleHover}
               onMouseLeave={handleHover}
             />
             <Info
-              onClick={handleClickItem}
-              highlighted={index === hoveredIndex}
+              highlightColor={highlightColor}
+              onClick={onClickItem && handleClickItem}
+              highlighted={index === hoveredIndex || highlightedIndex === index}
               aria-valuenow={index}
               onMouseEnter={handleHover}
               onMouseLeave={handleHover}
